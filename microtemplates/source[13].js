@@ -1,0 +1,104 @@
+(function anonymous(obj,escapeExpr
+) {
+var __t,__p='',__j=Array.prototype.join,print=function(){__p+=__j.call(arguments,'');};
+with(obj||{}){
+__p+='<div class="media-control-background" data-background></div>\n<div class="media-control-layer" data-controls>\n  ';
+  var renderBar = function(name) { 
+__p+='\n      <div class="bar-container" data-'+
+((__t=( name ))==null?'':__t)+
+'>\n        <div class="bar-background" data-'+
+((__t=( name ))==null?'':__t)+
+'>\n          <div class="bar-fill-1" data-'+
+((__t=( name ))==null?'':__t)+
+'></div>\n          <div class="bar-fill-2" data-'+
+((__t=( name ))==null?'':__t)+
+'></div>\n          <div class="bar-hover" data-'+
+((__t=( name ))==null?'':__t)+
+'></div>\n        </div>\n        <div class="bar-scrubber" data-'+
+((__t=( name ))==null?'':__t)+
+'>\n          <div class="bar-scrubber-icon" data-'+
+((__t=( name ))==null?'':__t)+
+'></div>\n        </div>\n      </div>\n  ';
+  }; 
+__p+='\n  ';
+  var renderSegmentedBar = function(name, segments) {
+      segments = segments || 10; 
+__p+='\n    <div class="bar-container" data-'+
+((__t=( name ))==null?'':__t)+
+'>\n    ';
+ for (var i = 0; i < segments; i++) { 
+__p+='\n      <div class="segmented-bar-element" data-'+
+((__t=( name ))==null?'':__t)+
+'></div>\n    ';
+ } 
+__p+='\n    </div>\n  ';
+ }; 
+__p+='\n  ';
+ var renderDrawer = function(name, renderContent) { 
+__p+='\n      <div class="drawer-container" data-'+
+((__t=( name ))==null?'':__t)+
+'>\n        <div class="drawer-icon-container" data-'+
+((__t=( name ))==null?'':__t)+
+'>\n          <div class="drawer-icon media-control-icon" data-'+
+((__t=( name ))==null?'':__t)+
+'></div>\n          <span class="drawer-text" data-'+
+((__t=( name ))==null?'':__t)+
+'></span>\n        </div>\n        ';
+ renderContent(name); 
+__p+='\n      </div>\n  ';
+ }; 
+__p+='\n  ';
+ var renderIndicator = function(name) { 
+__p+='\n      <div class="media-control-indicator" data-'+
+((__t=( name ))==null?'':__t)+
+'></div>\n  ';
+ }; 
+__p+='\n  ';
+ var renderButton = function(name) { 
+__p+='\n    <button type="button" class="media-control-button media-control-icon" data-'+
+((__t=( name ))==null?'':__t)+
+' aria-label="'+
+((__t=( name ))==null?'':__t)+
+'"></button>\n  ';
+ }; 
+__p+='\n  ';
+  var templates = {
+        bar: renderBar,
+        segmentedBar: renderSegmentedBar,
+      };
+      var render = function(settingsList) {
+        settingsList.forEach(function(setting) {
+          if(setting === "seekbar") {
+            renderBar(setting);
+          } else if (setting === "volume") {
+            renderDrawer(setting, settings.volumeBarTemplate ? templates[settings.volumeBarTemplate] : function(name) { return renderSegmentedBar(name); });
+          } else if (setting === "duration" || setting === "position") {
+            renderIndicator(setting);
+          } else {
+            renderButton(setting);
+          }
+        });
+      }; 
+__p+='\n  ';
+ if (settings.default && settings.default.length) { 
+__p+='\n  <div class="media-control-center-panel" data-media-control>\n    ';
+ render(settings.default); 
+__p+='\n  </div>\n  ';
+ } 
+__p+='\n  ';
+ if (settings.left && settings.left.length) { 
+__p+='\n  <div class="media-control-left-panel" data-media-control>\n    ';
+ render(settings.left); 
+__p+='\n  </div>\n  ';
+ } 
+__p+='\n  ';
+ if (settings.right && settings.right.length) { 
+__p+='\n  <div class="media-control-right-panel" data-media-control>\n    ';
+ render(settings.right); 
+__p+='\n  </div>\n  ';
+ } 
+__p+='\n</div>\n';
+}
+return __p;
+//# sourceURL=/microtemplates/source[13]
+})

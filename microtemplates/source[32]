@@ -1,0 +1,27 @@
+(function anonymous(obj,escapeExpr
+) {
+var __t,__p='',__j=Array.prototype.join,print=function(){__p+=__j.call(arguments,'');};
+with(obj||{}){
+__p+='<button type="button" class="cc-button media-control-button media-control-icon" data-cc-button aria-label="'+
+((__t=( ariaLabel ))==null?'':__t)+
+'"></button>\n<ul>\n  ';
+ if (title) { 
+__p+='\n  <li data-title>'+
+((__t=( title ))==null?'':__t)+
+'</li>\n  ';
+ }; 
+__p+='\n  <li><a href="#" data-cc-select="-1">'+
+((__t=( disabledLabel ))==null?'':__t)+
+'</a></li>\n  ';
+ for (var i = 0; i < tracks.length; i++) { 
+__p+='\n    <li><a href="#" data-cc-select="'+
+((__t=( tracks[i].id ))==null?'':__t)+
+'">'+
+((__t=( tracks[i].label ))==null?'':__t)+
+'</a></li>\n  ';
+ }; 
+__p+='\n</ul>\n';
+}
+return __p;
+//# sourceURL=/microtemplates/source[32]
+})

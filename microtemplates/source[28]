@@ -1,0 +1,15 @@
+(function anonymous(obj,escapeExpr
+) {
+var __t,__p='',__j=Array.prototype.join,print=function(){__p+=__j.call(arguments,'');};
+with(obj||{}){
+__p+='<div class="live-info">'+
+((__t=( live ))==null?'':__t)+
+'</div>\n<button type="button" class="live-button" aria-label="'+
+((__t=( backToLive ))==null?'':__t)+
+'">'+
+((__t=( backToLive ))==null?'':__t)+
+'</button>\n';
+}
+return __p;
+//# sourceURL=/microtemplates/source[28]
+})
